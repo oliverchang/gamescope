@@ -617,6 +617,7 @@ static void parse_edid( drm_t *drm, struct connector *conn)
 		return;
 	}
 
+  drm_log.errorf("blob length %d", blob->length);
 	conn->edid_data = std::vector<uint8_t>((const uint8_t*)blob->data, ((const uint8_t*)(blob->data)) + blob->length);
 
 	drmModeFreePropertyBlob(blob);
