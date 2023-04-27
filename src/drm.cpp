@@ -611,6 +611,13 @@ static void parse_edid( drm_t *drm, struct connector *conn)
 		return;
 	}
 
+	FILE *file = fopen("/home/gamer/test.input", "w");
+	if (!file)
+		return false;
+
+  fwrite(blob->data, 1, blob->length, file);
+  fclose(file);
+  
   drm_log.errorf("blob length %d", blob->length);
 	struct di_info *info = di_info_parse_edid(blob->data, blob->length);
 	if (!info) {
