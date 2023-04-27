@@ -613,7 +613,7 @@ static void parse_edid( drm_t *drm, struct connector *conn)
 
 	FILE *file = fopen("/home/gamer/test.input", "w");
 	if (!file)
-		return false;
+		return;
 
   fwrite(blob->data, 1, blob->length, file);
   fclose(file);
