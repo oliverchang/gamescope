@@ -525,6 +525,9 @@ const char *drm_get_patched_edid_path()
 
 static void create_patched_edid( const uint8_t *orig_data, size_t orig_size, drm_t *drm, struct connector *conn )
 {
+  if (orig_size == 0) {
+    return;
+  }
 	std::vector<uint8_t> edid(orig_data, orig_data + orig_size);
 
 	if ( g_bRotated )
